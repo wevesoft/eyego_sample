@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LASIK vs. PRK: Key Differences | EyeGo Korea Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4840ba;
+      --primary-deep: #230b59;
+      --header-bg: #e8edf2;
+      --ink: #18172b;
+      --body: #424158;
+      --muted: #7c7ba7;
+      --hairline: rgba(24, 23, 43, 0.12);
+      --canvas: #ffffff;
+      --on-dark: #ffffff;
+      --cta-green: #3ecf8e;
+      --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: Lora, Georgia, "Times New Roman", serif;
+      --max-width: 1140px;
+      --content-width: 680px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--canvas);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Nav */
+    .nav {
+      background: var(--canvas);
+      border-bottom: 1px solid var(--hairline);
+      height: 64px;
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-deep);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--primary);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links { display: flex; gap: 4px; }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body);
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    .nav-link:hover { background: rgba(72, 64, 186, 0.06); }
+    .nav-link.is-active { color: var(--primary-deep); font-weight: 600; }
+
+    .nav-actions { display: flex; gap: 10px; }
+
+    .btn {
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-nav-login {
+      height: 36px;
+      padding: 0 18px;
+      border-radius: 100px;
+      background: transparent;
+      border: 1px solid var(--hairline);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .btn-nav-cta {
+      height: 36px;
+      padding: 0 18px;
+      border-radius: 100px;
+      background: var(--primary);
+      color: var(--on-dark);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Article header */
+    .article-header {
+      background: var(--header-bg);
+      padding: 56px 0 48px;
+    }
+
+    .article-header-inner {
+      max-width: var(--content-width);
+    }
+
+    .article-header h1 {
+      font-size: clamp(32px, 4.5vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .article-summary {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--body);
+      margin-bottom: 24px;
+    }
+
+    .article-updated {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Two-column layout */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 56px;
+      padding: 56px 0 80px;
+      align-items: start;
+    }
+
+    /* Article body */
+    .article-body {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink);
+      max-width: var(--content-width);
+    }
+
+    .article-body p {
+      margin-bottom: 20px;
+    }
+
+    .article-body strong {
+      font-weight: 600;
+    }
+
+    .article-body code {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      background: #f4f4f6;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .article-body ul {
+      margin: 0 0 20px 24px;
+    }
+
+    .article-body li {
+      margin-bottom: 8px;
+    }
+
+    .article-body h2 {
+      font-family: var(--font-sans);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin: 36px 0 16px;
+      color: var(--ink);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 24px;
+    }
+
+    .newsletter-box {
+      background: var(--blog-header, #0d1b3e);
+      background: #0d1b3e;
+      color: var(--on-dark);
+      padding: 28px 24px;
+      border-radius: 4px;
+      margin-bottom: 36px;
+    }
+
+    .newsletter-box p {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .newsletter-box input {
+      width: 100%;
+      padding: 12px 14px;
+      border: none;
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .newsletter-box .btn-submit {
+      width: 100%;
+      padding: 12px;
+      background: var(--cta-green);
+      color: var(--on-dark);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 2px;
+    }
+
+    .newsletter-disclaimer {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 14px;
+      line-height: 1.45;
+    }
+
+    .trending h3 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .trending-item {
+      margin-bottom: 24px;
+    }
+
+    .trending-category {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .trending-category .sep {
+      color: var(--muted);
+      margin: 0 4px;
+    }
+
+    .trending-item a {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .trending-item a:hover {
+      color: var(--primary);
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 32px;
+    }
+
+    .footer {
+      background: var(--primary-deep);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">E</span>
+        EyeGo Korea
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">EyeGo</a>
+        <a href="blog.html" class="nav-link is-active">Blog</a>
+        <a href="about.html" class="nav-link">About Us</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-nav-login">Log in</button>
+        <button class="btn btn-nav-cta">Get started</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="container">
+      <div class="article-header-inner">
+        <h1>LASIK vs. PRK: Key Differences and How to Choose the Right Procedure</h1>
+        <p class="article-summary">
+          Learn the fundamental differences between LASIK and PRK, including recovery
+          time, candidacy requirements, and which procedure may be right for your vision goals.
+        </p>
+        <p class="article-updated">Last updated on July 1, 2026</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="article-layout">
+      <article class="article-body">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+
+        <p>
+          When considering vision correction surgery, two of the most common procedures
+          you'll encounter are <strong>LASIK</strong> (Laser-Assisted In Situ Keratomileusis)
+          and <strong>PRK</strong> (Photorefractive Keratectomy). Both use excimer lasers
+          to reshape the cornea and correct refractive errors, but they differ significantly
+          in technique, recovery, and candidacy.
+        </p>
+
+        <p>
+          Understanding these differences is essential before traveling abroad for surgery.
+          At EyeGo Korea, we help patients navigate this decision by providing transparent
+          data on surgeon expertise, procedure recommendations, and honest pricing — so you
+          never face hidden fees or uncertainty.
+        </p>
+
+        <h2>How LASIK Works</h2>
+
+        <p>
+          LASIK involves creating a thin corneal flap using a femtosecond laser or microkeratome.
+          The flap is lifted, the underlying corneal tissue is reshaped with an excimer laser,
+          and the flap is repositioned. Because the surface epithelium remains largely intact,
+          recovery is typically faster and more comfortable.
+        </p>
+
+        <p>Key characteristics of LASIK:</p>
+        <ul>
+          <li>Visual recovery within <strong>24–48 hours</strong> for most patients</li>
+          <li>Minimal discomfort during the first day</li>
+          <li>Requires sufficient corneal thickness for flap creation</li>
+          <li>Not ideal for patients with thin corneas or certain corneal irregularities</li>
+        </ul>
+
+        <h2>How PRK Works</h2>
+
+        <p>
+          PRK removes the outer epithelial layer entirely before reshaping the cornea.
+          The epithelium regenerates naturally over 3–5 days. Because no flap is created,
+          PRK preserves more corneal structural integrity and is often recommended for
+          patients who don't qualify for LASIK.
+        </p>
+
+        <p>Key characteristics of PRK:</p>
+        <ul>
+          <li>Full visual stabilization may take <strong>2–4 weeks</strong></li>
+          <li>More discomfort during the first 3–5 days as epithelium heals</li>
+          <li>Suitable for patients with thinner corneas</li>
+          <li>No risk of flap-related complications (displacement, striae)</li>
+        </ul>
+
+        <h2>Comparing Outcomes</h2>
+
+        <p>
+          Long-term visual outcomes between LASIK and PRK are <strong>comparable</strong>
+          for most patients. Studies show that both procedures achieve similar levels of
+          visual acuity at the 6-month and 12-month marks. The primary differences lie in
+          recovery experience and candidacy, not final visual quality.
+        </p>
+
+        <p>
+          Patients with active lifestyles or professions where eye trauma is a risk
+          (military, martial arts, contact sports) may prefer PRK due to the absence
+          of a corneal flap. Conversely, patients seeking the fastest return to work
+          and daily activities often choose LASIK.
+        </p>
+
+        <h2>How to Decide</h2>
+
+        <p>
+          The right procedure depends on your corneal thickness, prescription, lifestyle,
+          and surgeon's recommendation. A comprehensive pre-operative examination —
+          including corneal topography, pachymetry, and wavefront analysis — is essential.
+        </p>
+
+        <p>
+          At EyeGo Korea, our vetted partner clinics conduct thorough evaluations before
+          recommending a procedure. We ensure you receive an honest assessment based on
+          your individual anatomy, not a one-size-fits-all approach. If you're considering
+          vision correction in Korea, our <code>Custom Clinic Report</code> provides
+          personalized recommendations from strictly curated premier clinics.
+        </p>
+      </article>
+
+      <aside class="sidebar">
+        <div class="newsletter-box">
+          <p>World-class articles, delivered weekly.</p>
+          <input type="email" placeholder="Enter your email">
+          <button class="btn btn-submit" type="button">Get Great Content</button>
+          <p class="newsletter-disclaimer">
+            By entering your email, you are agreeing to our terms of service and privacy policy.
+          </p>
+        </div>
+
+        <div class="trending">
+          <h3>Trending Now</h3>
+
+          <div class="trending-item">
+            <div class="trending-category">Eye Care <span class="sep">&gt;</span> Procedures</div>
+            <a href="blog-post.html">LASIK vs. PRK: Key Differences and How to Choose</a>
+          </div>
+
+          <div class="trending-item">
+            <div class="trending-category">Medical Tourism <span class="sep">&gt;</span> Korea</div>
+            <a href="blog-post.html">Why Korea Leads the World in Vision Correction</a>
+          </div>
+
+          <div class="trending-item">
+            <div class="trending-category">Patient Guide <span class="sep">&gt;</span> Clinic Selection</div>
+            <a href="blog-post.html">How to Choose a Trusted Eye Clinic Abroad</a>
+          </div>
+
+          <div class="trending-item">
+            <div class="trending-category">Recovery <span class="sep">&gt;</span> Post-Op</div>
+            <a href="blog-post.html">What to Expect During LASIK Recovery</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 awesome-design-md sample. Not affiliated with Wealthfront.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

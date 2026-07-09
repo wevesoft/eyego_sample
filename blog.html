@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | EyeGo Korea</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4840ba;
+      --primary-deep: #230b59;
+      --blog-header: #0d1b3e;
+      --ink: #18172b;
+      --body: #424158;
+      --muted: #7c7ba7;
+      --hairline: rgba(24, 23, 43, 0.12);
+      --canvas: #ffffff;
+      --on-dark: #ffffff;
+      --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: Lora, Georgia, "Times New Roman", serif;
+      --max-width: 1140px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--canvas);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Nav */
+    .nav {
+      background: var(--canvas);
+      border-bottom: 1px solid var(--hairline);
+      height: 64px;
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-deep);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--primary);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links { display: flex; gap: 4px; }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body);
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+
+    .nav-link:hover { background: rgba(72, 64, 186, 0.06); }
+    .nav-link.is-active { color: var(--primary-deep); font-weight: 600; }
+
+    .nav-actions { display: flex; gap: 10px; }
+
+    .btn {
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-nav-login {
+      height: 36px;
+      padding: 0 18px;
+      border-radius: 100px;
+      background: transparent;
+      border: 1px solid var(--hairline);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .btn-nav-cta {
+      height: 36px;
+      padding: 0 18px;
+      border-radius: 100px;
+      background: var(--primary);
+      color: var(--on-dark);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Blog hero */
+    .blog-hero {
+      background: var(--blog-header);
+      color: var(--on-dark);
+      padding: 56px 0 40px;
+    }
+
+    .blog-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .blog-hero-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 560px;
+    }
+
+    .blog-hero-meta {
+      text-align: right;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .blog-hero-meta .shares {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .blog-edge-link {
+      margin-top: 20px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .blog-edge-link a {
+      color: var(--on-dark);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-left: 4px;
+      font-weight: 500;
+    }
+
+    .blog-search {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      padding: 14px 18px;
+      max-width: 480px;
+    }
+
+    .blog-search input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--on-dark);
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .blog-search input::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .blog-search-icon {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 16px;
+    }
+
+    /* Post grid */
+    .blog-posts {
+      padding: 56px 0 80px;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 32px;
+    }
+
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.15s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .post-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 4px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
+    }
+
+    .post-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .post-card:hover .post-thumb img {
+      transform: scale(1.03);
+    }
+
+    .post-category {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+    }
+
+    .post-category .sep {
+      color: var(--muted);
+      margin: 0 4px;
+    }
+
+    .post-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+    }
+
+    .post-excerpt {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--body);
+      flex: 1;
+    }
+
+    .post-read-time {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .footer {
+      background: var(--primary-deep);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-hero-grid { grid-template-columns: 1fr; }
+      .blog-hero-meta { text-align: left; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .posts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">E</span>
+        EyeGo Korea
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">EyeGo</a>
+        <a href="blog.html" class="nav-link is-active">Blog</a>
+        <a href="about.html" class="nav-link">About Us</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn btn-nav-login">Log in</button>
+        <button class="btn btn-nav-cta">Get started</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="blog-hero">
+    <div class="container">
+      <div class="blog-hero-grid">
+        <div>
+          <h1>EyeGo Korea Blog</h1>
+          <p class="blog-hero-desc">
+            The EyeGo Korea Blog is the top hub for patients and industry professionals
+            to find eye care content online — covering LASIK, clinic selection, medical
+            tourism in Korea, and post-operative recovery.
+          </p>
+          <p class="blog-edge-link">
+            EyeGo core team members share their experience on the
+            <a href="#">Patient Care Blog</a>
+          </p>
+        </div>
+        <div class="blog-hero-meta">
+          <div>Featured in</div>
+          <div class="shares">↗ 12.4K shares</div>
+        </div>
+      </div>
+      <div class="blog-search">
+        <span class="blog-search-icon">⌕</span>
+        <input type="search" placeholder="What are you looking for?">
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-posts">
+    <div class="container">
+      <div class="posts-grid">
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=640&q=80" alt="LASIK vs PRK eye surgery comparison">
+          </div>
+          <div class="post-category">Eye Care <span class="sep">&gt;</span> Procedures</div>
+          <h2 class="post-title">LASIK vs. PRK: Key Differences and How to Choose the Right Procedure</h2>
+          <p class="post-excerpt">Learn the fundamental differences between LASIK and PRK, including recovery time, candidacy requirements, and which procedure may be right for your vision goals.</p>
+          <div class="post-read-time">18 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=640&q=80" alt="Seoul Korea city skyline">
+          </div>
+          <div class="post-category">Medical Tourism <span class="sep">&gt;</span> Korea</div>
+          <h2 class="post-title">Why Korea Leads the World in Vision Correction Surgery</h2>
+          <p class="post-excerpt">Korea has become a global hub for eye care. We explore the technology, surgeon expertise, and cost advantages that draw international patients every year.</p>
+          <div class="post-read-time">14 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=640&q=80" alt="Modern eye clinic interior">
+          </div>
+          <div class="post-category">Patient Guide <span class="sep">&gt;</span> Clinic Selection</div>
+          <h2 class="post-title">How to Choose a Trusted Eye Clinic Abroad: A Complete Checklist</h2>
+          <p class="post-excerpt">Selecting the right clinic overseas can be overwhelming. This guide walks you through credentials, reviews, pricing transparency, and red flags to avoid.</p>
+          <div class="post-read-time">22 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=640&q=80" alt="Patient recovery after eye surgery">
+          </div>
+          <div class="post-category">Recovery <span class="sep">&gt;</span> Post-Op</div>
+          <h2 class="post-title">What to Expect During LASIK Recovery: Week-by-Week Timeline</h2>
+          <p class="post-excerpt">From the first 24 hours to full visual stabilization, understand each stage of recovery and when you can safely return to work, travel, and exercise.</p>
+          <div class="post-read-time">12 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1532187863486-abf9db881cad?w=640&q=80" alt="Advanced laser eye surgery technology">
+          </div>
+          <div class="post-category">Eye Care <span class="sep">&gt;</span> Technology</div>
+          <h2 class="post-title">SMILE vs. LASIK: Which Next-Generation Procedure Is Right for You?</h2>
+          <p class="post-excerpt">SMILE is gaining popularity as a minimally invasive alternative. Compare outcomes, flap creation, dry eye risk, and candidacy between SMILE and traditional LASIK.</p>
+          <div class="post-read-time">16 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a3cc3741?w=640&q=80" alt="International travel for medical care">
+          </div>
+          <div class="post-category">Patient Stories <span class="sep">&gt;</span> Experiences</div>
+          <h2 class="post-title">From New York to Seoul: One Patient's Journey to Clear Vision</h2>
+          <p class="post-excerpt">A firsthand account of planning, traveling, surgery day, and recovery — including how having a local advocate made all the difference.</p>
+          <div class="post-read-time">10 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1554224311-beee415c201f?w=640&q=80" alt="Medical cost and pricing consultation">
+          </div>
+          <div class="post-category">Eye Care <span class="sep">&gt;</span> Costs</div>
+          <h2 class="post-title">Understanding Eye Surgery Pricing: What You're Actually Paying For</h2>
+          <p class="post-excerpt">Hidden fees and unclear pricing are common in medical tourism. Learn how to read quotes, compare packages, and avoid surprise charges.</p>
+          <div class="post-read-time">15 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=640&q=80" alt="Planning travel to Korea">
+          </div>
+          <div class="post-category">Medical Tourism <span class="sep">&gt;</span> Planning</div>
+          <h2 class="post-title">Planning Your Eye Surgery Trip to Korea: Flights, Hotels, and Timing</h2>
+          <p class="post-excerpt">A practical planning guide covering how long to stay, where to recover, visa requirements, and how to coordinate your surgery with your travel schedule.</p>
+          <div class="post-read-time">20 minute read</div>
+        </a>
+
+        <a href="blog-post.html" class="post-card">
+          <div class="post-thumb">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=640&q=80" alt="Doctor providing patient safety guidance">
+          </div>
+          <div class="post-category">Patient Guide <span class="sep">&gt;</span> Safety</div>
+          <h2 class="post-title">Your Safety Abroad: What a Local Guarantor Does for You</h2>
+          <p class="post-excerpt">When complications arise in a foreign country, who do you call? Understand the role of a local advocate and why it matters for medical tourists.</p>
+          <div class="post-read-time">11 minute read</div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 awesome-design-md sample. Not affiliated with Wealthfront.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

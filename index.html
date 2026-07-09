@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EyeGo Korea | Trusted Eye Clinics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4840ba;
+      --primary-active: #3b32a8;
+      --primary-deep: #230b59;
+      --primary-mid: #3b2b7d;
+      --primary-gradient-end: #4b18bf;
+      --ink: #18172b;
+      --body: #424158;
+      --muted: #7c7ba7;
+      --hairline: rgba(24, 23, 43, 0.17);
+      --canvas: #ffffff;
+      --surface-lavender-soft: #e8ebfd;
+      --surface-soft: #f1f1f3;
+      --surface-lavender: #e8ebfd;
+      --on-dark: #ffffff;
+      --on-dark-soft: rgba(255, 255, 255, 0.75);
+      --semantic-positive: #65c8ac;
+      --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: Lora, Georgia, "Times New Roman", serif;
+      --max-width: 1140px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--canvas);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Promo banner */
+    .promo-banner {
+      background: var(--surface-lavender-soft);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--primary-deep);
+    }
+
+    .promo-banner .btn-promo {
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(35, 11, 89, 0.25);
+      background: transparent;
+      color: var(--primary-deep);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* Dark hero shell */
+    .hero-shell {
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 20%, #4b18bf 0%, transparent 55%),
+        radial-gradient(ellipse 70% 80% at 80% 60%, #3b2b7d 0%, transparent 50%),
+        linear-gradient(145deg, #2a1570 0%, #230b59 40%, #1a0845 100%);
+      color: var(--on-dark);
+      overflow: hidden;
+    }
+
+    /* Nav on dark */
+    .nav {
+      height: 64px;
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--on-dark);
+      flex-shrink: 0;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--on-dark);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--on-dark);
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link:hover { background: rgba(255, 255, 255, 0.08); }
+
+    .nav-chevron {
+      font-size: 10px;
+      opacity: 0.7;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.15s, background 0.15s;
+    }
+
+    .btn-nav-login {
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 100px;
+      background: transparent;
+      color: var(--on-dark);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-nav-login:hover { border-color: rgba(255, 255, 255, 0.6); }
+
+    .btn-nav-cta {
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 100px;
+      background: var(--on-dark);
+      color: var(--primary-deep);
+    }
+
+    .btn-nav-cta:hover { opacity: 0.92; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--on-dark);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 48px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .earn-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--on-dark);
+      margin-bottom: 4px;
+    }
+
+    .sparkle { font-size: 16px; }
+
+    .hero-headline {
+      font-size: clamp(56px, 9vw, 96px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -2px;
+      color: var(--on-dark);
+      margin-bottom: 4px;
+    }
+
+    .apy-number {
+      font-size: clamp(72px, 11vw, 120px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -3px;
+      color: var(--on-dark);
+      margin-bottom: 4px;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--on-dark);
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-benefits {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .hero-benefits li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      color: var(--on-dark-soft);
+      padding: 7px 0;
+    }
+
+    .benefit-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .btn-hero-primary {
+      height: 48px;
+      padding: 0 28px;
+      border-radius: 100px;
+      background: var(--primary);
+      color: var(--on-dark);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .btn-hero-primary:hover { background: var(--primary-active); }
+
+    .btn-hero-outline {
+      height: 48px;
+      padding: 0 28px;
+      border-radius: 100px;
+      background: transparent;
+      color: var(--on-dark);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .btn-hero-outline:hover { border-color: rgba(255, 255, 255, 0.7); }
+
+    .hero-disclaimer {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.45);
+      max-width: 460px;
+      line-height: 1.55;
+    }
+
+    /* Phone + card mockup */
+    .mockup-scene {
+      position: relative;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mockup-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn-message {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 28px;
+      border-radius: 100px;
+      background: var(--on-dark);
+      color: var(--primary);
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-message:hover {
+      background: #f0eeff;
+      transform: translateY(-1px);
+    }
+
+    .debit-card {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      width: 160px;
+      height: 250px;
+      border-radius: 16px;
+      background: linear-gradient(160deg, #6058d4 0%, #4840ba 50%, #3b2b7d 100%);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+      transform: rotate(8deg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1;
+    }
+
+    .debit-card .chip {
+      width: 32px;
+      height: 24px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #d4af37, #f5e6a3);
+      opacity: 0.9;
+    }
+
+    .debit-card .card-logo {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+
+    .debit-card .visa {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      align-self: flex-end;
+      opacity: 0.9;
+    }
+
+    .debit-card .waves {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      opacity: 0.15;
+    }
+
+    .debit-card .waves::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 20px, rgba(255,255,255,0.3) 21px, transparent 22px);
+    }
+
+    .phone {
+      position: relative;
+      z-index: 2;
+      width: 240px;
+      background: #f8f8fa;
+      border-radius: 36px;
+      padding: 12px;
+      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.1);
+      transform: rotate(-6deg) translateX(-20px);
+    }
+
+    .phone-notch {
+      width: 80px;
+      height: 22px;
+      background: #1a1a1a;
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto 8px;
+    }
+
+    .phone-screen {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 16px 14px 12px;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-header {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .phone-balance {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .phone-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .phone-chart {
+      height: 80px;
+      margin-bottom: 16px;
+    }
+
+    .phone-chart svg { width: 100%; height: 100%; }
+
+    .phone-accounts {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .phone-account {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+    }
+
+    .phone-account .name { font-weight: 500; color: var(--ink); }
+    .phone-account .amt { font-weight: 600; color: var(--ink); }
+
+    .phone-nav {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+      margin-top: auto;
+    }
+
+    .phone-nav span {
+      font-size: 16px;
+      opacity: 0.4;
+    }
+
+    .phone-nav span.active { opacity: 1; color: var(--primary); }
+
+    /* Stats on dark */
+    .stats-dark {
+      padding: 32px 0 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .stat-item .stat-main {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--on-dark);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .stat-item .stat-sub {
+      font-size: 13px;
+      color: var(--on-dark-soft);
+      line-height: 1.4;
+    }
+
+    .stat-item .stat-value {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: var(--on-dark);
+      margin-bottom: 2px;
+    }
+
+    .stat-item .stat-label {
+      font-size: 13px;
+      color: var(--on-dark-soft);
+    }
+
+    .stat-bankrate .bankrate-logo {
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--on-dark);
+      margin-bottom: 4px;
+    }
+
+    .stat-stars {
+      color: var(--on-dark);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* APY pill banner — overlaps dark/white */
+    .apy-pill-wrap {
+      position: relative;
+      z-index: 10;
+      margin-top: -28px;
+      margin-bottom: 0;
+      padding: 0 24px;
+    }
+
+    .apy-pill {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--surface-lavender-soft);
+      border: 1px solid rgba(72, 64, 186, 0.12);
+      border-radius: 100px;
+      padding: 14px 24px 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 20px rgba(35, 11, 89, 0.08);
+    }
+
+    .apy-pill-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--canvas);
+      border: 1px solid rgba(72, 64, 186, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+      color: var(--primary-deep);
+    }
+
+    .apy-pill-text {
+      font-size: 15px;
+      color: var(--primary-deep);
+      line-height: 1.45;
+    }
+
+    .apy-pill-text strong {
+      font-weight: 600;
+    }
+
+    /* Invest hero (white) */
+    .invest-hero {
+      background: var(--canvas);
+      padding: 72px 0 80px;
+      text-align: center;
+    }
+
+    .invest-headline {
+      max-width: 820px;
+      margin: 0 auto 28px;
+    }
+
+    .invest-headline .line-sans {
+      display: block;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--primary-deep);
+      margin-bottom: 4px;
+    }
+
+    .invest-headline .line-serif {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--primary-deep);
+    }
+
+    .invest-body {
+      max-width: 640px;
+      margin: 0 auto 56px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--body);
+    }
+
+    /* Award cards */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .award-card {
+      background: linear-gradient(145deg, #2a1570 0%, var(--primary-deep) 100%);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--on-dark);
+    }
+
+    .award-wreath {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .award-wreath svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.9;
+    }
+
+    .award-wreath .award-inner {
+      position: relative;
+      z-index: 1;
+      font-size: 22px;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    .award-wreath .award-stars {
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .award-source {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+
+    .award-title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .award-brand {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .award-brand.nw {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .award-brand .n-mark {
+      display: inline-flex;
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--on-dark);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      font-style: normal;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    /* ── Tier 2: FAQ (2-column) ── */
+    .faq-section {
+      background: var(--canvas);
+      padding: 96px 0;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .faq-intro h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--primary);
+      margin-bottom: 0;
+    }
+
+    .faq-intro h2 .line-block {
+      display: block;
+    }
+
+    .faq-list {
+      list-style: none;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .faq-item:first-child { border-top: 1px solid var(--hairline); }
+
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .faq-trigger h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--muted);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.is-open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.25s ease;
+    }
+
+    .faq-item.is-open .faq-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-panel-inner {
+      overflow: hidden;
+    }
+
+    .faq-panel p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--body);
+      padding: 0 0 22px;
+      margin: 0;
+    }
+
+    /* ── Tier 3: How it works (3-column) ── */
+    .steps-section {
+      background: linear-gradient(145deg, #2a1570 0%, var(--primary-deep) 100%);
+      padding: 80px 0 96px;
+      color: var(--on-dark);
+    }
+
+    .steps-section h2 {
+      text-align: center;
+      font-size: clamp(24px, 3.5vw, 32px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--on-dark);
+      margin-bottom: 56px;
+      line-height: 1.3;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 0 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid var(--on-dark);
+      color: var(--on-dark);
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .step-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--on-dark);
+      margin-bottom: 24px;
+      line-height: 1.45;
+      max-width: 220px;
+    }
+
+    .step-card p {
+      display: none;
+    }
+
+    .step-btn {
+      height: 44px;
+      padding: 0 28px;
+      border-radius: 100px;
+      background: var(--on-dark);
+      color: var(--primary-deep);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: auto;
+    }
+
+    .step-btn:hover { opacity: 0.92; }
+
+    .step-card.no-btn {
+      padding-bottom: 44px;
+    }
+
+    .footer {
+      padding: 64px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col li {
+      font-size: 14px;
+      color: var(--body);
+      margin-bottom: 12px;
+    }
+
+    .legal-band {
+      padding-top: 24px;
+      border-top: 1px solid var(--hairline);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .mockup-scene { height: 400px; margin-top: 24px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .awards-grid { grid-template-columns: 1fr; max-width: 360px; }
+      .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .btn-nav-login { display: none; }
+      .menu-toggle { display: flex; align-items: center; justify-content: center; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 32px 0 48px; }
+      .phone { width: 200px; }
+      .debit-card { width: 130px; height: 200px; }
+      .apy-pill { border-radius: 20px; flex-wrap: wrap; justify-content: center; text-align: center; }
+      .invest-hero { padding: 48px 0 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark hero shell: nav + hero + stats -->
+  <div class="hero-shell">
+
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">E</span>
+          EyeGo Korea
+        </a>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">EyeGo</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="about.html" class="nav-link">About Us</a>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-nav-login">Log in</button>
+          <button class="btn btn-nav-cta">Get started</button>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-headline">Rest easy,</div>
+          <h1 class="hero-tagline">You're in expert hands.</h1>
+          <ul class="hero-benefits">
+            <li>
+              <svg class="benefit-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              More than a platform, Strictly Curated Premier Care
+            </li>
+            <li>
+              <svg class="benefit-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Homelike Care Beyond Borders
+            </li>
+            <li>
+              <svg class="benefit-icon" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Vetted in-person, Routinely Verified
+            </li>
+          </ul>
+          <div class="hero-actions">
+            <button class="btn btn-hero-primary">Get started</button>
+            <button class="btn btn-hero-outline">Learn more</button>
+          </div>
+          <p class="hero-disclaimer">
+            3.30% Base Annual Percentage Yield (APY) as of 1/30/26 is provided by program banks and is subject to change. APY Boost is up to a $150,000 balance.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="mockup-scene">
+            <div class="debit-card">
+              <div class="waves"></div>
+              <div class="chip"></div>
+              <div class="card-logo">WF</div>
+              <div class="visa">VISA</div>
+            </div>
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-header">Total balance</div>
+                <div class="phone-balance">$304,606</div>
+                <div class="phone-sub">+$1,247.32 this month</div>
+                <div class="phone-chart">
+                  <svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#4840ba" stop-opacity="0.2"/>
+                        <stop offset="100%" stop-color="#4840ba" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0,60 Q40,55 80,45 T160,25 T200,15 L200,80 L0,80 Z" fill="url(#pg)"/>
+                    <path d="M0,60 Q40,55 80,45 T160,25 T200,15" fill="none" stroke="#4840ba" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="phone-accounts">
+                  <div class="phone-account">
+                    <span class="name">Cash Account</span>
+                    <span class="amt">$24,980</span>
+                  </div>
+                  <div class="phone-account">
+                    <span class="name">Investing</span>
+                    <span class="amt">$279,626</span>
+                  </div>
+                </div>
+                <div class="phone-nav">
+                  <span class="active">⌂</span>
+                  <span>◎</span>
+                  <span>↗</span>
+                  <span>☰</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mockup-cta">
+            <a
+              class="btn-message"
+              href="https://www.youtube.com/watch?v=inndxx5PEm0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Message from EyeGo Korea</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-dark">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item stat-bankrate">
+            <div class="bankrate-logo">Bankrate</div>
+            <div class="stat-sub">Best Cash Management<br>Account, 2023-25</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">1.4M+</div>
+            <div class="stat-label">Funded clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">$95B+</div>
+            <div class="stat-label">In total assets</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">4.8 <span class="stat-stars">★★★★★</span></div>
+            <div class="stat-label">Apple App Store</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">4.9 <span class="stat-stars">★★★★★</span></div>
+            <div class="stat-label">Google Play Store</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Tier 2: FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-intro">
+          <h2>
+            <span class="line-block">Why EyeGo Korea?</span>
+            <span class="line-block">5 things to know.</span>
+          </h2>
+        </div>
+        <ul class="faq-list" id="faq-accordion">
+          <li class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <h3>Beyond Hidden Costs &amp; Skills</h3>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-panel-inner">
+                <p>Choosing the right surgeon and fair pricing can be overwhelming. We eliminate the guesswork by providing clear data on expertise and costs, ensuring you never face hidden fees or uncertainty.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <h3>Certified Partners, Active Communication</h3>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-panel-inner">
+                <p>We only partner with strictly vetted clinics. As your dedicated advocate, EyeGo Korea steps in to communicate concerns, ensuring your voice is heard and issues are resolved professionally.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <h3>Fresh, 100% Verified Feedback</h3>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-panel-inner">
+                <p>We conduct regular review audits to ensure you see the most current, honest patient experiences. Base your life-changing decisions on recent, authentic data you can actually trust.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <h3>Your Safety, Guaranteed Locally</h3>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-panel-inner">
+                <p>In case of unexpected accidents or emergencies, EyeGo Korea acts as your local guarantor. We verify your identity and provide essential support, so you're never alone in a foreign country.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <h3>Seamless Post-Op Communication</h3>
+              <span class="faq-chevron" aria-hidden="true">▾</span>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-panel-inner">
+                <p>Recovery doesn't end at the clinic. We maintain tight communication with your doctors for thorough aftercare, ensuring your healing process is monitored and every question is answered.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tier 3: How it works (3-column) -->
+  <section class="steps-section">
+    <div class="container">
+      <h2>How to meet our Trusted Eye Clinics with EyeGo Korea</h2>
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-num">1</div>
+          <h3>Share Your information and needs</h3>
+          <button class="step-btn">click</button>
+        </article>
+        <article class="step-card">
+          <div class="step-num">2</div>
+          <h3>Custom Clinic Report for $20</h3>
+          <button class="step-btn">Request and Pay</button>
+        </article>
+        <article class="step-card no-btn">
+          <div class="step-num">3</div>
+          <h3>We will make an appointment and you visit</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">Cash</a></li>
+            <li><a href="#">Automated Investing</a></li>
+            <li><a href="#">Stock Investing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="legal-band">
+        <p>© 2026 awesome-design-md sample. Not affiliated with Wealthfront.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var accordion = document.getElementById('faq-accordion');
+      if (!accordion) return;
+
+      var items = accordion.querySelectorAll('.faq-item');
+
+      items.forEach(function (item) {
+        var trigger = item.querySelector('.faq-trigger');
+        if (!trigger) return;
+
+        trigger.addEventListener('click', function () {
+          var isOpen = item.classList.contains('is-open');
+
+          items.forEach(function (other) {
+            other.classList.remove('is-open');
+            var btn = other.querySelector('.faq-trigger');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isOpen) {
+            item.classList.add('is-open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
